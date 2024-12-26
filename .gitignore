@@ -1,0 +1,12 @@
+tmp*
+.DS_Store
+.env
+.env.dev
+.idea
+.mypy_cache/
+.tmp
+.vscode/
+logs/
+secrets
+*venv
+*secret.yaml
