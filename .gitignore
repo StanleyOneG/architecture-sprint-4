@@ -12,3 +12,4 @@ secrets
 *secret.yaml
 *assignment*
 *.drawio
+*.cache*
