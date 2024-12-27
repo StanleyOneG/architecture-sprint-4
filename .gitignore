@@ -7,6 +7,9 @@ tmp*
 .tmp
 .vscode/
 logs/
-secrets
+.secrets*
 *venv
 *secret.yaml
+*assignment*
+*model.drawio
+*.cache*

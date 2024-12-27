@@ -1,0 +1,26 @@
+@startuml
+title Кэширование в MES
+
+participant "MES" as mes
+participant "Cache" as cache
+participant "MES DB" as db
+
+group Чтение списка заказов
+    mes -> cache: Запрос списка заказов
+    cache -> cache: Поиск в кеше
+    alt cache hit
+        cache --> mes: Список заказов (из кеша)
+    else cache miss
+        cache -> db: Запрос списка заказов
+        db --> cache: Список заказов
+        cache -> cache: Запись в кеш
+        cache --> mes: Список заказов
+    end
+end
+
+group Запись изменения статуса заказа
+    mes -> db: Изменение статуса заказа
+    db --> mes: Подтверждение
+    mes -> cache: Инвалидация кеша
+end
+@enduml
